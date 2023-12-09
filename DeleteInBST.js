@@ -21,31 +21,6 @@ const create = (root,val) => {
     return root
 }
 
-//Inorder traversal
-const inorder = (root,arr) => {
-    if(!root){
-        return null
-    }
-    else{
-        inorder(root.left,arr)
-        arr.push(root.data)
-        inorder(root.right,arr)
-    }
-}
-
-//create BST
-let root = null
-root = create(root,5)
-root = create(root,2)
-root = create(root,10)
-root = create(root,7)
-root = create(root,11)
-let tree = []
-inorder(root,tree)
-
-console.log('The tree is :',tree)
-
-
 //Delete a node
 const deletebst = (root, key) => {
     if(!root){
@@ -104,6 +79,28 @@ const findlargest = (root) => {
     return largest
 }
 
+//Inorder traversal
+const inorder = (root,arr) => {
+    if(!root){
+        return null
+    }
+    else{
+        inorder(root.left,arr)
+        arr.push(root.data)
+        inorder(root.right,arr)
+    }
+}
+
+//create BST
+let root = null
+root = create(root,5)
+root = create(root,2)
+root = create(root,10)
+root = create(root,7)
+root = create(root,11)
+let tree = []
+inorder(root,tree)
+console.log('The tree is :',tree)
 
 //deleting from bst
 deletebst(root,5)

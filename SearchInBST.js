@@ -1,3 +1,4 @@
+//create treenode
 class TreeNode{
     constructor(data){
         this.data = data
@@ -20,6 +21,40 @@ const insert = (root, val) => {
         }
         return root
     }
+}
+
+//search a BST using Recursion
+const searchrecur = (root, key) => {
+    if(!root){
+        return false
+    }
+    else{
+        if(root.data == key){
+            return true
+        }
+        else if(root.data > key){
+            return searchrecur(root.left,key)
+        }
+        else{
+            return searchrecur(root.right,key)
+        }
+    }
+}
+
+//search using iterations
+const searchitr = (root, key) => {
+    while(root){
+        if(root.data == key){
+            return true
+        }
+        if(root.data > key){
+            root = root.left
+        }
+        else{
+            root = root.right
+        }
+    }
+    return false
 }
 
 //inorder 
@@ -46,41 +81,6 @@ root = insert(root, 9)
 let tree = []
 inorder(root,tree)
 console.log('tree : ', tree)
-
-
-//search a BST using Recursion
-const searchrecur = (root, key) => {
-    if(!root){
-        return false
-    }
-    else{
-        if(root.data == key){
-            return true
-        }
-        else if(root.data > key){
-            return searchrecur(root.left,key)
-        }
-        else{
-            return searchrecur(root.right,key)
-        }
-    }
-}
-
-const searchitr = (root, key) => {
-    while(root){
-        if(root.data == key){
-            return true
-        }
-        if(root.data > key){
-            root = root.left
-        }
-        else{
-            root = root.right
-        }
-    }
-    return false
-}
-
 
 let isPresent = false
 
